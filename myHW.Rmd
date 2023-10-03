@@ -1,0 +1,378 @@
+---
+title: "myHW"
+author: "min cheng"
+date: "9/22/2023"
+output: html_document
+---
+```{r}
+
+```
+
+# Heading(no hash)# library(openxlsx)  
+## Heading 2 (two hashes)
+### Sub Heading  (3 hashes)
+#### Sub Heading2  (4 hashes)
+##### Bold text  (5 hashes)
+###### Bold text 2  (6 hashes)
+###### End
+```{r}
+
+```
+# library(openxlsx)  # For openxlsx package
+data <- read_xlsx("C:/Users/mchen/OneDrive/Documents/R/Typical_Employee_Survey_Data.xlsx")
+
+# Heading(no hash)# library(openxlsx)  
+## Heading 2 (two hashes)
+### Sub Heading  (3 hashes)
+#### Sub Heading2  (4 hashes)
+##### Bold text  (5 hashes)
+###### Bold text 2  (6 hashes)
+###### End
+```{r}
+
+```
+
+# Install and load the readxl package
+install.packages("readxl")
+library(readxl)
+
+
+# Specify the path to your Excel file
+excel_file <- "C:/Users/mchen/OneDrive/Documents/R forecasting/Typical_Employee_Survey_Data.xlsx"
+
+# Read an Excel file
+excel_data <- read_excel("C:/Users/mchen/OneDrive/Documents/R forecasting/Typical_Employee_Survey_Data.xlsx")
+
+# Print the data frame
+print(data)
+
+
+
+# Read the Excel file into R without using the first row as column names
+data <- read_xlsx(excel_file, col_names = FALSE)
+
+# Print the data frame
+print(data)
+
+## Summary Stats
+
+
+
+# Change data column names
+colnames(data)[1:11] <- c("Age", "Gender", "Department","job satisfaction","longevity","attitudes","measurement 4","measurement 5","measurement 6","measurement 7","measurement 8")
+
+
+print(data)
+
+
+# Find the minimum value of the age
+min_value <- min(data[, 1])
+
+# Print the minimum value
+print(min_value)
+
+range(data[, 1])
+StatRange = max(data[, 1]) - min(data[, 1])
+
+# Display the result
+cat("StatRange:", StatRange, "\n")
+
+# Calculate the mean of column 1 (Age) excluding the header
+mean_age <- mean(data[, 1], na.rm = TRUE)
+
+# Print the mean value
+print(mean_age)
+# Filter out rows with non-numeric or missing values in column 1 (Age)
+data_cleaned <- data[!is.na(data$Age) & is.numeric(data$Age), ]
+
+# Calculate the mean of the cleaned data
+mean_age <- mean(data_cleaned$Age)
+
+# Print the mean value
+print(mean_age)
+
+# Filter out rows with non-numeric or missing values in column 1 (Age)
+data_cleaned <- data[!is.na(data$Age) & is.numeric(data$Age), ]
+
+# Calculate the mean of the cleaned data
+sd_age <- sd(data_cleaned$Age)
+print(sd_age)
+
+
+data_cleaned <- data[!is.na(data$Age) & is.numeric(data$Age), ]
+var_age <- var(data_cleaned$Age)
+print(var_age)
+
+# Remove the header row
+data_no_header <- data[-1, ]
+
+# Calculate the variance of the "Age" column without the header
+variance_age <- var(data_no_header$Age)
+print(variance_age)
+
+# Calculate the standard deviation of the "Age" column without the header
+std_dev_age <- sqrt(var(data_no_header$Age))
+print(std_dev_age)
+
+# Calculate the five-number summary of the "Age" column without the header
+five_num_summary <- fivenum(data_no_header$Age)
+print(five_num_summary)
+
+# Calculate the interquartile range (IQR) of the "Age" column without the header
+iqr_age <- IQR(data_no_header$Age)
+print(iqr_age)
+
+# Calculate quantiles (e.g., quartiles) of the "Age" column without the header
+quantiles_age <- quantile(data_no_header$Age)
+print(quantiles_age)
+
+summary(data$Age)
+summary(data$Gender)
+summary(data$Department)
+summary(data$`job satisfaction`)
+summary(data$'longevity')
+summary(data$'attitudes')
+summary(data$'measurement4')
+summary(data$'measurement5')
+summary(data$'measurement6')
+summary(data$'measurement7')
+summary(data$'measurement8')
+
+summary(data$`job satisfaction`)
+
+# "longevity"  summary 
+summary(data$`longevity`)
+
+# "attitudes" summary
+summary(data$`attitudes`)
+
+"measurement 4" summary
+summary(data$`measurement 4`)
+
+
+
+#  "measurement5"  summary 
+summary(data$`measurement5`)
+
+#  "measurement6" summary
+summary(data$`measurement6`)
+
+#  "measurement7" summary
+summary(data$`measurement7`)
+
+# "measurement8" summary
+summary(data$`measurement8`)
+
+
+boxplot.stats(data$Age)
+
+
+
+
+# Specify the path to your Excel file
+excel_file <- "C:/Users/mchen/OneDrive/Documents/R forecasting/Typical_Employee_Survey_Data.xlsx"
+
+# Load the required library for reading Excel files
+library(readxl)
+
+# Read the Excel file into R
+data <- read_excel(excel_file)
+
+nrow(data)
+
+
+# Print the data frame
+print(data)
+
+colnames(data)
+
+
+# Change data column names
+colnames(data)[1:11] <- c("Age", "Gender", "Department","job satisfaction","longevity","attitudes","measurement 4","measurement 5","measurement 6","measurement 7","measurement 8")
+
+colnames(data)
+
+print(data)
+
+# Convert specific columns to factors
+data$Age <- factor(data$Age)
+data$Gender <- factor(data$Gender)
+
+
+# Convert all columns to factors
+data <- as.data.frame(lapply(data, as.factor))
+
+#check if convertion result
+str(data)
+
+stem(data$Age)
+
+
+summary(data)
+boxplot.stats(data$Age)$out
+
+range(data$Age)
+StatRange = max(data$Age) - min(data$Age)
+
+#pieplot
+# Using "Gender" column to label the boxes
+boxplot(data$Age, main = "Age by Gender", xlab = "Gender", ylab = "Age", col = "orange", names.arg = data$Gender)
+
+# Using "Department" column to label the boxes
+boxplot(data$Age, main = "Age by Department", xlab = "Department", ylab = "Age", col = "blue", names.arg = data$Department)
+
+#pieplot
+pie(data$Department)
+
+-----
+# Sample data
+data <- data.frame(
+  Department = c(2, 2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 2, 2, 1, 3, 2, 2, 2, 1, 1, 1, 4, 1, 2, 2, 2, 1, 4, 1, 1, 2, 1, 1, 3, 1, 1, 2, 1, 3, 2, 2, 1, 4, 2, 1, 1, 1, 1, 4, 2, 2, 1, 2, 2, 1, 1, 1, 3, 2, 1, 4, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 2, 3, 2, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 3, 2, 2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 4, 1, 1, 1, 2, 1, 4, 1, 1, 2, 1, 2, 2, 1, 1, 1, 2),
+  Attitudes = c(1, 5, 1, 3, 3, 1, 5, 2, 4, 2, 4, 2, 2, 1, 4, 5, 2, 4, 3, 5, 1, 4, 1, 1, 1, 2, 5, 5, 5, 5, 1, 1, 1, 2, 5, 5, 2, 5, 5, 2, 1, 2, 4, 2, 5, 5, 4, 4, 1, 1, 4, 4, 2, 3, 2, 1, 4, 4, 2, 4, 4, 2, 5, 2, 2, 2, 2, 1, 4, 1, 5, 4, 5, 3, 4, 5, 5, 5, 2, 4, 4, 5, 2, 5, 5, 2, 2, 2, 5, 5, 4, 5, 1, 4, 4, 5, 2, 2, 1, 5, 2, 5, 4, 4, 5, 4, 4, 5, 3, 5, 5, 5, 4, 5, 4, 5, 5, 4, 1, 5, 2, 1)
+)
+
+# Calculate average attitudes by department
+avg_attitudes <- tapply(data$Attitudes, data$Department, mean)
+
+# Create an empty plot
+plot(1, type = "n", xlim = c(1, length(unique(data$Department))), ylim = range(data$Attitudes), 
+     xaxt = "n", xlab = "Department", ylab = "Attitudes", main = "Department vs. Attitudes")
+
+# Add x-axis labels
+axis(1, at = 1:length(unique(data$Department)), labels = unique(data$Department))
+
+# Add lines to the plot
+lines(1:length(unique(data$Department)), avg_attitudes, type = "o", col = "blue", pch = 19)
+
+
+# another code of lineplot
+
+
+data$Attitudes <- as.integer(data$Attitudes)
+
+# avg attitude
+avg_attitudes <- tapply(data$Attitudes, data$Department, mean)
+
+#  Line Plot
+plot(unique(data$Department), avg_attitudes, type = "o", 
+     xlab = "attitudes", ylab = "Average Department", 
+     main = "Line Plot of Average Attitudes vs. Department",
+     col = "blue", pch = 19)
+
+
+
+
+
+# Create a data frame with data
+data <- data.frame(
+  Value = c(2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 2, 2, 1, 3, 2, 2, 2, 1, 1, 1, 4, 1, 2, 2, 2, 1, 4, 1, 1, 2, 1, 1, 3, 1, 1, 2, 1, 3, 2, 2, 1, 4, 2, 1, 1, 1, 1, 4, 2, 2, 1, 2, 2, 1, 1, 1, 3, 2, 1, 4, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 2, 3, 2, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 3, 2, 2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 4, 1, 1, 1, 2, 1, 4, 1, 1, 2, 1, 2, 2, 1, 1, 1, 2)
+)
+
+# Create a function to map values to departments
+map_to_department <- function(value) {
+  if (value == 1) {
+    return("dept1")
+  } else if (value == 2) {
+    return("dept2")
+  } else if (value == 3) {
+    return("dept3")
+  } else if (value == 4) {
+    return("dept4")
+  } else {
+    return("Unknown")  # Handle other values
+  }
+}
+
+# Use the function to map values to departments in the data frame
+data$Department <- sapply(data$Value, map_to_department)
+
+# Print frequency table
+print(table(data$Department))
+
+# Calculate proportions
+prop_table <- prop.table(table(data$Department))
+
+# Create a pie chart
+pie(prop_table, labels = NULL, main = "Department Distribution", col = rainbow(length(prop_table)))
+
+# Add a legend to the side
+legend("right", legend = names(prop_table), fill = rainbow(length(prop_table)))
+
+
+
+
+boxplot(data$Age)
+boxplot(data$Gender)skip the non-numerical
+
+# Filter out non-numerical values in the Gender column
+data_numeric <- data[!is.na(as.numeric(data$Gender)), ]
+
+# Create a boxplot for the numerical values in the Gender column
+hist(as.numeric(data_numeric$Gender))
+
+
+
+
+
+#xy plot
+
+# Load the lattice package (if not already loaded)
+library(lattice)
+
+
+data <- data.frame(
+  Age = c(35, 33, 23, 60, 35, 34, 61, 59, 37, 30, 34, 34, 27, 38, 41, 58, 34, 48, 26, 39, 29, 36, 25, 39, 40, 53, 39, 27, 35, 25, 29, 23, 40, 36, 64, 43, 28, 48, 52, 32, 23, 44, 36, 33, 52, 38, 34, 62, 36, 37, 39, 61, 20, 22, 36, 48, 58, 50, 24, 44, 30, 32, 32, 44, 34, 42, 40, 37, 32, 31, 44, 39, 30, 41, 39, 33, 25, 31, 41, 42, 33, 36, 39, 39, 62, 62, 34, 52, 40, 43, 41, 64, 26, 45, 33, 36, 45, 51, 38, 57, 45, 43, 37, 33, 51, 43, 42, 25, 40, 57, 38, 41, 32, 39, 43, 50, 49, 35, 22, 33, 29, 22),
+  Longevity = c(3, 9, 1.5, 20, 3, 6, 0.75, 1.5, 3, 5, 3, 8, 7, 15, 1, 36, 1.5, 6, 3.5, 3, 16, 4.08, 2, 2, 11.83, 10, 1, 2, 10, 2.5, 1, 0.75, 4.33, 10, 7, 18, 0.16, 1.66, 0.08, 3, 1, 5, 9.5, 3.75, 1, 2.66, 5.5, 52.25, 1, 19, 10, 13, 3, 1, 7, 4, 12, 22.5, 1, 10, 2, 7, 12, 22, 4, 22, 2, 5, 11, 10, 0.66, 11, 11, 12, 9, 10, 3, 5.5, 2.33, 5, 1, 6, 16, 3.25, 27, 1.91, 2.08, 31.91, 6, 14, 4, 29, 1.5, 0.58, 7, 5, 21, 24, 6, 34, 4, 26, 5, 1, 23, 3, 6, 2.5, 11.25, 29.25, 2, 11, 1.5, 9, 5, 1, 1.5, 10, 1, 11, 2, 1.25),
+  JobSatisfaction = c(4, 3, 1, 1, 1, 1, 1, 5, 5, 5, 3, 3, 5, 4, 1, 4, 1, 5, 4, 5, 5, 5, 4, 5, 1, 1, 5, 2, 1, 5, 5, 2, 5, 1, 4, 5, 5, 5, 5, 1, 1, 1, 1, 3, 5, 5, 5, 1, 5, 5, 5, 5, 4, 5, 5, 4, 4, 5, 5, 1, 5, 5, 1, 4, 5, 5, 5, 5, 5, 1, 4, 5, 1, 4, 4, 5, 4, 5, 5, 2, 5, 5, 4, 1, 2, 1, 4, 2, 5, 5, 5, 5, 4, 5, 1, 3, 5, 5, 1, 1, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 2, 5, 3, 5, 4, 2, 5, 5, 5, 2)
+)
+
+# Create an xyplot
+xyplot(Age + Longevity ~ JobSatisfaction, data = data, 
+       main = "Scatterplot of Age + Longevity vs. Job Satisfaction",
+       xlab = "Job Satisfaction", ylab = "Age + Longevity",
+       type = c("p", "smooth"), col = "blue")
+warnings()
+
+# Sample data (replace with your data)
+Longevity = c(3, 9, 1.5, 20, 3, 6, 0.75, 1.5, 3, 5, 3, 8, 7, 15, 1, 36, 1.5, 6, 3.5, 3, 16, 4.08, 2, 2, 11.83, 10, 1, 2, 10, 2.5, 1, 0.75, 4.33, 10, 7, 18, 0.16, 1.66, 0.08, 3, 1, 5, 9.5, 3.75, 1, 2.66, 5.5, 52.25, 1, 19, 10, 13, 3, 1, 7, 4, 12, 22.5, 1, 10, 2, 7, 12, 22, 4, 22, 2, 5, 11, 10, 0.66, 11, 11, 12, 9, 10, 3, 5.5, 2.33, 5, 1, 6, 16, 3.25, 27, 1.91, 2.08, 31.91, 6, 14, 4, 29, 1.5, 0.58, 7, 5, 21, 24, 6, 34, 4, 26, 5, 1, 23, 3, 6, 2.5, 11.25, 29.25, 2, 11, 1.5, 9, 5, 1, 1.5, 10, 1, 11, 2, 1.25)
+job_satisfaction <- c(4, 3, 1, 1, 1, 1, 1, 5, 5, 5, 3, 3, 5, 4, 1, 4, 1, 5, 4, 5)
+
+# Create a scatter plot
+plot(data$Longevity, data$job_satisfaction, 
+     xlab="Longevity", ylab="Job Satisfaction",
+     main="Scatter Plot of Longevity vs. Job Satisfaction",
+     col="orange", pch=19)
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+StatRange
+mean(myDataFrame$Age)
+sd(myDataFrame$Age)
+var(myDataFrame$Age)
+sqrt(var(myDataFrame$Age)
+fivenum(myDataFrame$Age,)
+IQR(myDataFrame$Age)
+quantile(myDataFrame$Age)
+summary(myDataFrame$Age)
+boxplot.stats(myDataFrame$Age)
+boxplot.stats(myDataFrame$Age)$out
+
+
+
+
