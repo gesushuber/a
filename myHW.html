@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="min cheng" />
+<meta name="author" content="maggie cheng" />
 
 
 <title>myHW</title>
@@ -350,8 +350,8 @@ display: none;
 
 
 <h1 class="title toc-ignore">myHW</h1>
-<h4 class="author">min cheng</h4>
-<h4 class="date">9/22/2023</h4>
+<h4 class="author">maggie cheng</h4>
+<h4 class="date">9/18/2023</h4>
 
 </div>
 
@@ -521,71 +521,59 @@ summary(data\)</span>’measurement5’) summary(data<span class="math inline">\
 summary(data\)</span>’measurement7’) summary(data$‘measurement8’)</p>
 <p>summary(data$<code>job satisfaction</code>)</p>
 </div>
-<div id="longevity-summary" class="section level1">
-<h1>“longevity” summary</h1>
+<div id="对名为-longevity-的列执行-summary-操作" class="section level1">
+<h1>对名为 “longevity” 的列执行 summary 操作</h1>
 <p>summary(data$<code>longevity</code>)</p>
 </div>
-<div id="attitudes-summary" class="section level1">
-<h1>“attitudes” summary</h1>
+<div id="对名为-attitudes-的列执行-summary-操作" class="section level1">
+<h1>对名为 “attitudes” 的列执行 summary 操作</h1>
 <p>summary(data$<code>attitudes</code>)</p>
-<p>“measurement 4” summary summary(data$<code>measurement 4</code>)</p>
 </div>
-<div id="measurement5-summary" class="section level1">
-<h1>“measurement5” summary</h1>
+<div id="对名为-measurement-4-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement 4” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement 4</code>)</p>
+</div>
+<div id="对名为-measurement4-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement4” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement4</code>)</p>
+</div>
+<div id="对名为-measurement5-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement5” 的列执行 summary 操作</h1>
 <p>summary(data$<code>measurement5</code>)</p>
 </div>
-<div id="measurement6-summary" class="section level1">
-<h1>“measurement6” summary</h1>
+<div id="对名为-measurement6-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement6” 的列执行 summary 操作</h1>
 <p>summary(data$<code>measurement6</code>)</p>
 </div>
-<div id="measurement7-summary" class="section level1">
-<h1>“measurement7” summary</h1>
+<div id="对名为-measurement7-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement7” 的列执行 summary 操作</h1>
 <p>summary(data$<code>measurement7</code>)</p>
 </div>
-<div id="measurement8-summary" class="section level1">
-<h1>“measurement8” summary</h1>
+<div id="对名为-measurement8-的列执行-summary-操作" class="section level1">
+<h1>对名为 “measurement8” 的列执行 summary 操作</h1>
 <p>summary(data$<code>measurement8</code>)</p>
-<p>boxplot.stats(data$Age)</p>
 </div>
-<div id="specify-the-path-to-your-excel-file-1" class="section level1">
-<h1>Specify the path to your Excel file</h1>
-<p>excel_file &lt;- “C:/Users/mchen/OneDrive/Documents/R
-forecasting/Typical_Employee_Survey_Data.xlsx”</p>
+<div id="对名为-measurement4-的列执行-summary-操作-1" class="section level1">
+<h1>对名为 “measurement4” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement4</code>)</p>
 </div>
-<div id="load-the-required-library-for-reading-excel-files" class="section level1">
-<h1>Load the required library for reading Excel files</h1>
-<p>library(readxl)</p>
+<div id="对名为-measurement5-的列执行-summary-操作-1" class="section level1">
+<h1>对名为 “measurement5” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement5</code>)</p>
 </div>
-<div id="read-the-excel-file-into-r" class="section level1">
-<h1>Read the Excel file into R</h1>
-<p>data &lt;- read_excel(excel_file)</p>
-<p>nrow(data)</p>
+<div id="对名为-measurement6-的列执行-summary-操作-1" class="section level1">
+<h1>对名为 “measurement6” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement6</code>)</p>
 </div>
-<div id="print-the-data-frame-2" class="section level1">
-<h1>Print the data frame</h1>
-<p>print(data)</p>
-<p>colnames(data)</p>
+<div id="对名为-measurement7-的列执行-summary-操作-1" class="section level1">
+<h1>对名为 “measurement7” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement7</code>)</p>
 </div>
-<div id="change-data-column-names-1" class="section level1">
-<h1>Change data column names</h1>
-<p>colnames(data)[1:11] &lt;- c(“Age”, “Gender”, “Department”,“job
-satisfaction”,“longevity”,“attitudes”,“measurement 4”,“measurement
-5”,“measurement 6”,“measurement 7”,“measurement 8”)</p>
-<p>colnames(data)</p>
-<p>print(data)</p>
-</div>
-<div id="convert-specific-columns-to-factors" class="section level1">
-<h1>Convert specific columns to factors</h1>
-<p>data<span class="math inline">\(Age &lt;- factor(data\)</span>Age)
-data<span class="math inline">\(Gender &lt;-
-factor(data\)</span>Gender)</p>
-</div>
-<div id="convert-all-columns-to-factors" class="section level1">
-<h1>Convert all columns to factors</h1>
-<p>data &lt;- as.data.frame(lapply(data, as.factor))</p>
-<p>#check if convertion result str(data)</p>
-<p>stem(data$Age)</p>
-<p>summary(data) boxplot.stats(data<span class="math inline">\(Age)\)</span>out</p>
+<div id="对名为-measurement8-的列执行-summary-操作-1" class="section level1">
+<h1>对名为 “measurement8” 的列执行 summary 操作</h1>
+<p>summary(data$<code>measurement8</code>)</p>
+<p>boxplot.stats(data<span class="math inline">\(Age) summary(data)
+boxplot.stats(data\)</span>Age)$out</p>
 <p>range(data<span class="math inline">\(Age) StatRange =
 max(data\)</span>Age) - min(data$Age)</p>
 <p>#pieplot # Using “Gender” column to label the boxes boxplot(data<span class="math inline">\(Age, main = &quot;Age by Gender&quot;, xlab =
@@ -598,59 +586,6 @@ names.arg = data\)</span>Gender)</p>
 Department&quot;, xlab = &quot;Department&quot;, ylab = &quot;Age&quot;,
 col = &quot;blue&quot;, names.arg = data\)</span>Department)</p>
 <p>#pieplot pie(data$Department)</p>
-<hr />
-</div>
-<div id="sample-data" class="section level1">
-<h1>Sample data</h1>
-<p>data &lt;- data.frame( Department = c(2, 2, 1, 1, 2, 2, 1, 2, 1, 1,
-1, 2, 2, 1, 3, 2, 2, 2, 1, 1, 1, 4, 1, 2, 2, 2, 1, 4, 1, 1, 2, 1, 1, 3,
-1, 1, 2, 1, 3, 2, 2, 1, 4, 2, 1, 1, 1, 1, 4, 2, 2, 1, 2, 2, 1, 1, 1, 3,
-2, 1, 4, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 2, 3, 2, 2, 1, 1, 1, 2, 1,
-2, 1, 1, 1, 1, 1, 3, 2, 2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 4,
-1, 1, 1, 2, 1, 4, 1, 1, 2, 1, 2, 2, 1, 1, 1, 2), Attitudes = c(1, 5, 1,
-3, 3, 1, 5, 2, 4, 2, 4, 2, 2, 1, 4, 5, 2, 4, 3, 5, 1, 4, 1, 1, 1, 2, 5,
-5, 5, 5, 1, 1, 1, 2, 5, 5, 2, 5, 5, 2, 1, 2, 4, 2, 5, 5, 4, 4, 1, 1, 4,
-4, 2, 3, 2, 1, 4, 4, 2, 4, 4, 2, 5, 2, 2, 2, 2, 1, 4, 1, 5, 4, 5, 3, 4,
-5, 5, 5, 2, 4, 4, 5, 2, 5, 5, 2, 2, 2, 5, 5, 4, 5, 1, 4, 4, 5, 2, 2, 1,
-5, 2, 5, 4, 4, 5, 4, 4, 5, 3, 5, 5, 5, 4, 5, 4, 5, 5, 4, 1, 5, 2, 1)
-)</p>
-</div>
-<div id="calculate-average-attitudes-by-department" class="section level1">
-<h1>Calculate average attitudes by department</h1>
-<p>avg_attitudes &lt;- tapply(data<span class="math inline">\(Attitudes,
-data\)</span>Department, mean)</p>
-</div>
-<div id="create-an-empty-plot" class="section level1">
-<h1>Create an empty plot</h1>
-<p>plot(1, type = “n”, xlim = c(1, length(unique(data<span class="math inline">\(Department))), ylim =
-range(data\)</span>Attitudes), xaxt = “n”, xlab = “Department”, ylab =
-“Attitudes”, main = “Department vs. Attitudes”)</p>
-</div>
-<div id="add-x-axis-labels" class="section level1">
-<h1>Add x-axis labels</h1>
-<p>axis(1, at = 1:length(unique(data<span class="math inline">\(Department)), labels =
-unique(data\)</span>Department))</p>
-</div>
-<div id="add-lines-to-the-plot" class="section level1">
-<h1>Add lines to the plot</h1>
-<p>lines(1:length(unique(data$Department)), avg_attitudes, type = “o”,
-col = “blue”, pch = 19)</p>
-</div>
-<div id="another-code-of-lineplot" class="section level1">
-<h1>another code of lineplot</h1>
-<p>data<span class="math inline">\(Attitudes &lt;-
-as.integer(data\)</span>Attitudes)</p>
-</div>
-<div id="avg-attitude" class="section level1">
-<h1>avg attitude</h1>
-<p>avg_attitudes &lt;- tapply(data<span class="math inline">\(Attitudes,
-data\)</span>Department, mean)</p>
-</div>
-<div id="line-plot" class="section level1">
-<h1>Line Plot</h1>
-<p>plot(unique(data$Department), avg_attitudes, type = “o”, xlab =
-“attitudes”, ylab = “Average Department”, main = “Line Plot of Average
-Attitudes vs. Department”, col = “blue”, pch = 19)</p>
 </div>
 <div id="create-a-data-frame-with-data" class="section level1">
 <h1>Create a data frame with data</h1>
@@ -690,16 +625,10 @@ sapply(data\)</span>Value, map_to_department)</p>
 <h1>Add a legend to the side</h1>
 <p>legend(“right”, legend = names(prop_table), fill =
 rainbow(length(prop_table)))</p>
-<p>boxplot(data<span class="math inline">\(Age)
-boxplot(data\)</span>Gender)skip the non-numerical</p>
-</div>
-<div id="filter-out-non-numerical-values-in-the-gender-column" class="section level1">
-<h1>Filter out non-numerical values in the Gender column</h1>
-<p>data_numeric &lt;- data[!is.na(as.numeric(data$Gender)), ]</p>
-</div>
-<div id="create-a-boxplot-for-the-numerical-values-in-the-gender-column" class="section level1">
-<h1>Create a boxplot for the numerical values in the Gender column</h1>
-<p>hist(as.numeric(data_numeric$Gender))</p>
+<p>pie(myDataFrame<span class="math inline">\(Age
+stem(myDataFrame\)</span>GPA) stem(myDataFrame<span class="math inline">\(Age) hist(myDataFrame\)</span>Age)
+boxplot(myDataFrame<span class="math inline">\(Age)
+boxplot(myDataFrame\)</span>Age,myDataFrame$Gender)</p>
 <p>#xy plot</p>
 </div>
 <div id="load-the-lattice-package-if-not-already-loaded" class="section level1">
