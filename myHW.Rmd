@@ -28,9 +28,7 @@ data <- read_xlsx("C:/Users/mchen/OneDrive/Documents/R/Typical_Employee_Survey_D
 ##### Bold text  (5 hashes)
 ###### Bold text 2  (6 hashes)
 ###### End
-```{r}
 
-```
 
 # Install and load the readxl package
 install.packages("readxl")
@@ -65,11 +63,17 @@ colnames(data)[1:11] <- c("Age", "Gender", "Department","job satisfaction","long
 print(data)
 
 
-# Find the minimum value of the age
-min_value <- min(data[, 1])
+# Convert the "Age" column to numeric (if it's not already)
+data$Age <- as.numeric(data$Age)
+
+# Find the minimum value of the "Age" column
+min_value <- min(data$Age)
 
 # Print the minimum value
 print(min_value)
+
+
+
 
 range(data[, 1])
 StatRange = max(data[, 1]) - min(data[, 1])
@@ -205,7 +209,9 @@ data <- as.data.frame(lapply(data, as.factor))
 #check if convertion result
 str(data)
 
-stem(data$Age)
+# Create a bar plot for the 'Age' column
+barplot(table(data$Age), main="Age Distribution", xlab="Age", ylab="Frequency")
+
 
 
 summary(data)
@@ -214,6 +220,18 @@ boxplot.stats(data$Age)$out
 range(data$Age)
 StatRange = max(data$Age) - min(data$Age)
 
+# Convert the "Age" column back to numeric
+data$Age <- as.numeric(as.character(data$Age))
+
+# Now, you can perform numeric operations
+outliers <- boxplot.stats(data$Age)$out
+range_of_age <- range(data$Age)
+
+# Print the results
+print(outliers)
+print(range_of_age)
+
+
 #pieplot
 # Using "Gender" column to label the boxes
 boxplot(data$Age, main = "Age by Gender", xlab = "Gender", ylab = "Age", col = "orange", names.arg = data$Gender)
@@ -221,8 +239,7 @@ boxplot(data$Age, main = "Age by Gender", xlab = "Gender", ylab = "Age", col = "
 # Using "Department" column to label the boxes
 boxplot(data$Age, main = "Age by Department", xlab = "Department", ylab = "Age", col = "blue", names.arg = data$Department)
 
-#pieplot
-pie(data$Department)
+
 
 -----
 # Sample data
@@ -301,14 +318,7 @@ legend("right", legend = names(prop_table), fill = rainbow(length(prop_table)))
 
 
 
-boxplot(data$Age)
-boxplot(data$Gender)skip the non-numerical
 
-# Filter out non-numerical values in the Gender column
-data_numeric <- data[!is.na(as.numeric(data$Gender)), ]
-
-# Create a boxplot for the numerical values in the Gender column
-hist(as.numeric(data_numeric$Gender))
 
 
 
@@ -357,21 +367,6 @@ plot(data$Longevity, data$job_satisfaction,
 
 
 
-
-
-
-
-StatRange
-mean(myDataFrame$Age)
-sd(myDataFrame$Age)
-var(myDataFrame$Age)
-sqrt(var(myDataFrame$Age)
-fivenum(myDataFrame$Age,)
-IQR(myDataFrame$Age)
-quantile(myDataFrame$Age)
-summary(myDataFrame$Age)
-boxplot.stats(myDataFrame$Age)
-boxplot.stats(myDataFrame$Age)$out
 
 
 
